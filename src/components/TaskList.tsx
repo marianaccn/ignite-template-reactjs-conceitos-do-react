@@ -14,6 +14,16 @@ export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState("");
 
+  // function handleCreateNewTask() {
+  //   if (newTaskTitle === "") return alert("Adicione um título!");
+  //   const addTask: Task = {
+  //     id: Math.floor(100 * Math.random()),
+  //     title: newTaskTitle,
+  //     isComplete: false,
+  //   };
+  //   setTasks([...tasks, addTask]);
+  // }
+
   function handleCreateNewTask() {
     if (newTaskTitle != "") {
       const id = Math.floor(100 * Math.random());
@@ -28,6 +38,14 @@ export function TaskList() {
     }
   }
 
+  // function handleToggleTaskCompletion(id: number) {
+  //   const newTasks = tasks.map((task) => {
+  //     if (task.id === id) task.isComplete = !task.isComplete;
+  //     return task;
+  //   });
+  //   setTasks(newTasks);
+  // }
+
   function handleToggleTaskCompletion(id: number) {
     const newTasks = tasks.map((task: Task) => {
       if (task.id === id) {
@@ -41,6 +59,11 @@ export function TaskList() {
     });
     setTasks(newTasks);
   }
+
+  // function handleRemoveTask(id: number) {
+  //   const removeTask = tasks.filter((task) => task.id != id);
+  //   setTasks(removeTask);
+  // }
 
   function handleRemoveTask(id: number) {
     const removeTask = tasks.filter((task: Task) => {
